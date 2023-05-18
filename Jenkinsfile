@@ -21,12 +21,12 @@ pipeline {
                 }
             }
         }
-        // stage("Start Docker") {
-        //     steps {
-        //         sh 'make up'
-        //         sh 'docker compose ps'
-        //     }
-        // }
+        stage("Start Docker") {
+            steps {
+                sh 'make up'
+                sh 'docker compose ps'
+            }
+        }
         // stage("Run Composer Install") {
         //     steps {
         //         sh 'docker compose run --rm composer install'

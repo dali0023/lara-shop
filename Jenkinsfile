@@ -37,7 +37,8 @@ pipeline {
             steps {
                 // sh 'docker compose run --rm artisan test'
                 // sh './vendor/bin/phpunit'
-                sh './vendor/bin/sail test'
+                // sh './vendor/bin/sail test'
+                sh 'php artisan test'
             }
         }
     }

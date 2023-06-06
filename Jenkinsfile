@@ -23,9 +23,9 @@ pipeline {
         }
         stage("Start Docker") {
             steps {
-                // sh 'make up'
                 sh 'docker compose up -d --no-color --wait'
                 sh 'docker compose ps'
+                // sh 'make up'
             }
         }
         // stage("Run Composer Install") {

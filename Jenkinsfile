@@ -37,17 +37,16 @@ pipeline {
         //         sh 'php artisan key:generate'
         //     }
         // }
-        // stage("Unit test") {
-        //     steps {
-        //         sh 'php artisan test'
-        //     }
-        // }
-        stage("Run Composer Install") {
+        stage("Unit test") {
             steps {
-                // sh 'docker compose run --rm composer install'
-                sh 'docker exec php composer install'
+                sh 'vendor/bin/phpunit tests/Feature'
             }
         }
+        // stage("Run Composer Install") {
+        //     steps {
+        //         sh 'docker compose run --rm composer install'
+        //     }
+        // }
         //  stage("Run Tests") {
         //     steps {
         //         sh 'docker compose run --rm artisan test'

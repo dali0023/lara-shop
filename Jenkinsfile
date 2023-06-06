@@ -28,19 +28,33 @@ pipeline {
                 // sh 'make up'
             }
         }
+        stage("Build") {
+            steps {
+                sh 'php --version'
+                sh 'composer install'
+                sh 'composer --version'
+                sh 'cp .env.example .env'
+                sh 'php artisan key:generate'
+            }
+        }
+        stage("Unit test") {
+            steps {
+                sh 'php artisan test'
+            }
+        }
         // stage("Run Composer Install") {
         //     steps {
         //         sh 'docker compose run --rm composer install'
         //     }
-        // }            
-        stage("Run Tests") {
-            steps {
-                // sh 'docker compose run --rm artisan test'
-                // sh './vendor/bin/phpunit'
-                // sh './vendor/bin/sail test'
-                sh 'php artisan test'
-            }
-        }
+        // }
+        //  stage("Run Tests") {
+        //     steps {
+        //         sh 'docker compose run --rm artisan test'
+        //         sh './vendor/bin/phpunit'
+        //         sh './vendor/bin/sail test'
+        //         sh 'php artisan test'
+        //     }
+        // }
     }
     // post {       
     //     always {

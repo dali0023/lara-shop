@@ -1,10 +1,12 @@
 pipeline {
-    agent { docker { image 'php' } }
+    agent any
     stages {
-        stage('build') {
-            steps {
-                sh 'php --version'
-            }
-        }
+        sh 'php --version'
     }
+    // post {       
+    //     always {
+    //         sh 'docker compose down --remove-orphans -v'
+    //         sh 'docker compose ps'
+    //     }
+    // }
 }

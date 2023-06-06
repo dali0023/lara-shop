@@ -36,7 +36,7 @@ pipeline {
         stage("Run Tests") {
             steps {
                 // sh 'docker compose run --rm artisan test'
-                sh './vendor/bin/phpunit'
+                // sh './vendor/bin/phpunit'
                 sh './vendor/bin/sail test'
             }
         }

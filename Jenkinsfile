@@ -28,17 +28,18 @@ pipeline {
                 // sh 'make up'
             }
         }
-        // stage("Run Composer Install") {
-        //     steps {
-        //         sh 'docker compose run --rm composer install'
-        //     }
-        // }            
-        stage("Run Tests") {
+        stage("Run Composer Install") {
             steps {
-                sh 'docker compose run --rm artisan test'
-                // sh "docker compose run --rm ./vendor/bin/phpunit"
+                // sh 'docker compose run --rm composer install'
+                sh './vendor/bin/sail composer install'
             }
-        }
+        }            
+        // stage("Run Tests") {
+        //     steps {
+        //         sh 'docker compose run --rm artisan test'
+        //         sh "docker compose run --rm ./vendor/bin/phpunit"
+        //     }
+        // }
     }
     // post {       
     //     always {

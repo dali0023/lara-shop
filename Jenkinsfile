@@ -28,16 +28,16 @@ pipeline {
                 // sh 'make up'
             }
         }
-        // stage("Run Composer Install") {
-        //     steps {
-        //         sh 'docker compose run --rm composer install'
-        //     }
-        // }            
-        // stage("Run Tests") {
-        //     steps {
-        //         sh 'docker compose run --rm artisan test'
-        //     }
-        // }
+        stage("Run Composer Install") {
+            steps {
+                sh 'docker compose run --rm composer install'
+            }
+        }            
+        stage("Run Tests") {
+            steps {
+                sh 'docker compose run --rm artisan test'
+            }
+        }
     }
     // post {       
     //     always {

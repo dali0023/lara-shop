@@ -31,7 +31,8 @@ pipeline {
         stage("Run Composer Install") {
             steps {
                 // sh 'docker compose run --rm composer install'
-                sh './vendor/bin/sail composer install'
+                // sh 'composer install'
+                sh 'composer install'
             }
         }            
         // stage("Run Tests") {
